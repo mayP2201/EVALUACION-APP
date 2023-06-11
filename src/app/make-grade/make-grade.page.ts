@@ -46,7 +46,7 @@ export class MakeGradePage implements OnInit {
       const nota3 = Number(this.bookingForm.value.nota3);
       const nota4 = Number(this.bookingForm.value.nota4);
       const nota5 = Number(this.bookingForm.value.nota5);
-      const promedio = (nota1 + nota2 + nota3 + nota4 + nota5) / 5;
+      const promedio = (nota1 * 0.2 + nota2 * 0.2 + nota3 * 0.2 + nota4 * 0.1 + nota5 * 0.3);
       
       if (!isNaN(promedio)) {
         this.bookingForm.patchValue({ total: promedio.toFixed(2) });

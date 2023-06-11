@@ -52,7 +52,7 @@ export class EditGradePage implements OnInit {
     const nota3 = Number(this.updateBookingForm.value.nota3);
     const nota4 = Number(this.updateBookingForm.value.nota4);
     const nota5 = Number(this.updateBookingForm.value.nota5);
-    const promedio = (nota1 + nota2 + nota3 + nota4 + nota5) / 5;
+    const promedio = (nota1 * 0.2 + nota2 * 0.2 + nota3 * 0.2 + nota4 * 0.1 + nota5 * 0.3);
     
     if (!isNaN(promedio)) {
       this.updateBookingForm.patchValue({ total: promedio.toFixed(2) });
