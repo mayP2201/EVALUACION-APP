@@ -25,11 +25,11 @@ export class EditGradePage implements OnInit {
     this.updateBookingForm = this.fb.group({
       nombre: ["", Validators.required],
       apellido: ["", Validators.required],
-      nota1: ["", [Validators.required, Validators.min(0), Validators.max(10)]],
-      nota2: ["", [Validators.required, Validators.min(0), Validators.max(10)]],
-      nota3: ["", [Validators.required, Validators.min(0), Validators.max(10)]],
-      nota4: ["", [Validators.required, Validators.min(0), Validators.max(10)]],
-      nota5: ["", [Validators.required, Validators.min(0), Validators.max(10)]],
+      nota1: ["", [Validators.required, Validators.min(0), Validators.max(100)]],
+      nota2: ["", [Validators.required, Validators.min(0), Validators.max(100)]],
+      nota3: ["", [Validators.required, Validators.min(0), Validators.max(100)]],
+      nota4: ["", [Validators.required, Validators.min(0), Validators.max(100)]],
+      nota5: ["", [Validators.required, Validators.min(0), Validators.max(100)]],
       
       // total: new FormControl({ value: "", disabled: true }), // Deshabilita el input del Total
       total: new FormControl('', Validators.required)
