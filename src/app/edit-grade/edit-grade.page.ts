@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from "@angular/router";
-import { FormGroup, FormBuilder } from "@angular/forms";
+import { FormGroup, FormBuilder, Validators, FormControl } from "@angular/forms";
 import { GradeService } from './../shared/grade.service';
 @Component({
   selector: 'app-edit-grade',
@@ -23,17 +23,44 @@ export class EditGradePage implements OnInit {
   }
   ngOnInit() {
     this.updateBookingForm = this.fb.group({
-      nombre: [''],
-      apellido: [''],
-      nota1: [''],
-      nota2: [''],
-      nota3: [''],
-      nota4: [''],
-      nota5: [''],
-      total: [''],
+      nombre: ["", Validators.required],
+      apellido: ["", Validators.required],
+      nota1: ["", [Validators.required, Validators.min(0), Validators.max(10)]],
+      nota2: ["", [Validators.required, Validators.min(0), Validators.max(10)]],
+      nota3: ["", [Validators.required, Validators.min(0), Validators.max(10)]],
+      nota4: ["", [Validators.required, Validators.min(0), Validators.max(10)]],
+      nota5: ["", [Validators.required, Validators.min(0), Validators.max(10)]],
+      
+      // total: new FormControl({ value: "", disabled: true }), // Deshabilita el input del Total
+      total: new FormControl('', Validators.required)
     })
+    this.subscribeToFormChanges();
+    
     console.log(this.updateBookingForm.value)
   }
+
+  private subscribeToFormChanges() {
+
+    this.updateBookingForm.valueChanges.subscribe(() => {
+      this.calculateTotal();
+    })
+  }
+
+  private calculateTotal() {
+    const nota1 = Number(this.updateBookingForm.value.nota1);
+    const nota2 = Number(this.updateBookingForm.value.nota2);
+    const nota3 = Number(this.updateBookingForm.value.nota3);
+    const nota4 = Number(this.updateBookingForm.value.nota4);
+    const nota5 = Number(this.updateBookingForm.value.nota5);
+    const promedio = (nota1 + nota2 + nota3 + nota4 + nota5) / 5;
+    
+    if (!isNaN(promedio)) {
+      this.updateBookingForm.patchValue({ total: promedio.toFixed(2) });
+    } else {
+      this.updateBookingForm.patchValue({ total: '' });
+    }
+}
+
   updateForm() {
     this.gdService.updateBooking(this.id, this.updateBookingForm.value)
       .then(() => {

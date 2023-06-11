@@ -34,7 +34,7 @@ const routes: Routes = [
   },
 
   {
-    path: 'edit-grade',
+    path: 'edit-grade/:id',
     loadChildren: () => import('./edit-grade/edit-grade.module').then( m => m.EditGradePageModule)
   },
 ];
