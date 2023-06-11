@@ -1,0 +1,7 @@
+{
+  "name": "ionic-login-crud",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

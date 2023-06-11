@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      REGISTRO DE NOTAS
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="auth-form">
+  <ion-grid>
+    <ion-row>
+      <ion-col align-self-center>
+        <div class="boton">
+          <ion-button [routerLink]="['/registration']" expand="block" color="primary">Registrar</ion-button>
+        </div>
+        <div class="texto">
+          <span class="already">Ya eres usuario?</span>
+        </div>
+        <div class="boton">
+          <ion-button [routerLink]="['/login']" expand="start" color="danger">Iniciar sesión</ion-button>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

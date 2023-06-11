@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar class="ios hydrated">
+    <ion-title class="ios title-ios hydrated">Registro de notas</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-list lines="full">
+    <form [formGroup]="bookingForm" (ngSubmit)="formSubmit()">
+      <ion-item>
+        <ion-label position="floating">Nombre</ion-label>
+        <ion-input formControlName="nombre" type="text" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Apellido</ion-label>
+        <ion-input formControlName="apellido" type="text" required>
+        </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Nota 1</ion-label>
+        <ion-input formControlName="nota1" type="number" required>
+        </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Nota 2</ion-label>
+        <ion-input formControlName="nota2" type="number" required>
+        </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Nota 3</ion-label>
+        <ion-input formControlName="nota3" type="number" required>
+        </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Nota 4</ion-label>
+        <ion-input formControlName="nota4" type="number" required>
+        </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Nota 5</ion-label>
+        <ion-input formControlName="nota5" type="number" required>
+        </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Total</ion-label>
+        <ion-input formControlName="total" type="number" required>
+        </ion-input>
+      </ion-item>
+      <ion-row>
+        <ion-col>
+          <div class="boton">
+            <ion-button type="submit" color="success" shape="full" expand="block">Guardar</ion-button>
+          </div>
+        </ion-col>
+      </ion-row>
+    </form>
+  </ion-list>
+</ion-content>

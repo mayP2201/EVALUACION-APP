@@ -1,0 +1,69 @@
+
+<ion-app>
+  <ion-router-outlet></ion-router-outlet>
+</ion-app>
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Notas de los estudiantes
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-app>
+  <ion-router-outlet></ion-router-outlet>
+</ion-app>
+<ion-content>
+  <ion-list class="ios list-ios hydrated">
+    <ion-list-header class="ios hydrated">
+      Listado
+    </ion-list-header>
+    <ion-item *ngFor="let booking of Bookings" class="user-list">
+      <ion-label>
+        <h5>
+          <ion-icon name="person"></ion-icon> Estudiante: {{booking.nombre}} {{booking.apellido}}
+        </h5>
+        <p>
+          <ion-icon name="person"></ion-icon> N1: {{booking.nota1}} 
+        </p>
+        <p>
+          <ion-icon name="person"></ion-icon> N2: {{booking.nota2}} 
+        </p>
+        <p>
+          <ion-icon name="person"></ion-icon> N3: {{booking.nota3}} 
+        </p>
+        <p>
+          <ion-icon name="person"></ion-icon> N4: {{booking.nota4}} 
+        </p>
+        <p>
+          <ion-icon name="person"></ion-icon> N5: {{booking.nota5}} 
+        </p>
+        <p>
+          <ion-icon name="person"></ion-icon> Nota Final: {{booking.total}} 
+        </p>
+     
+      </ion-label>
+      <div class="item-note" item-end>
+        <button ion-button clear [routerLink]="['/edit-grade/', booking.$key]">
+          <ion-icon name="create" style="zoom:2.0"></ion-icon>
+        </button>
+        <button ion-button clear (click)="deleteBooking(booking.$key)">
+          <ion-icon name="trash" style="zoom:2.0"></ion-icon>
+        </button>
+      </div>
+    </ion-item>
+  </ion-list>
+<ion-tabs>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button routerLinkActive="tab-selected" routerLink="/make-grade" class="ios" tab="Crear">
+      <ion-icon name="add-circle"></ion-icon>
+      <ion-label>Notas</ion-label>
+    </ion-tab-button>
+   </ion-tab-bar>
+</ion-tabs>
+<div class="boton">
+  <ion-button type="submit" (click)="authService.SignOut()" expand="block" color="danger">
+    <ion-icon name="arrow-back-outline" aria-hidden="true"></ion-icon>
+    Cerrar Sesión
+  </ion-button>
+</div>
+
